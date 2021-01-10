@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Introduction to JavaScript</title>
+    </head>
+    <body>
+        <div style = "color: red; font-size: 80px; text-align: center;" id = "clock">
+            00:00:00:00
+        </div>
+        <script>
+            setInterval(tickclock,500)
+            function tickclock(){
+                var currentDate = new Date()
+                console.log(currentDate)
+                var hrs = currentDate.getHours()
+                var mins = currentDate.getMinutes()
+                var secs = currentDate.getSeconds()
+                var millisecs = currentDate.getMilliseconds()
+                var zone = "AM"
+                if (secs<10){
+                    secs = "0" + secs
+                }
+                if (mins<10){
+                    mins = "0" + mins
+                }
+                if (hrs<10){
+                    hrs = "0" + hrs
+                }
+                if(hrs > 12){
+                    hrs = hrs - 12
+                }
+                if (currentDate.getHours() > 11){
+                    zone = "PM"
+                }
+                document.getElementById("clock").innerHTML = hrs + ":" + mins + ":" + secs + ":" + millisecs + " " + zone
+            }
+        </script>
+    </body>
+</html>
